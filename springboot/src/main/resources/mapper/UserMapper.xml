@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wei.diploma_project.mapper.UserMapper">
+
+    <resultMap id="UserResultMap" type="com.wei.diploma_project.bean.UserBean">
+            <id property="uid" column="uid" jdbcType="INTEGER"/>
+            <result property="loginname" column="loginname" jdbcType="VARCHAR"/>
+            <result property="password" column="password" jdbcType="VARCHAR"/>
+            <result property="username" column="username" jdbcType="VARCHAR"/>
+            <result property="avatar" column="avatar" jdbcType="VARCHAR"/>
+            <result property="phone" column="phone" jdbcType="VARCHAR"/>
+            <result property="gender" column="gender" jdbcType="INTEGER"/>
+            <result property="create_time" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="update_time" column="update_time" jdbcType="TIMESTAMP"/>
+            <result property="del_status" column="del_status" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="User_Column_List">
+        uid,loginname,password,
+        username,avatar,phone,
+        gender,create_time,update_time, del_status
+    </sql>
+
+    <insert id="addUser" parameterType="UserBean">
+        INSERT
+        INTO `user` (loginname, `password`, username, avatar, phone, gender, create_time, update_time, del_status)
+        VALUES (#{loginname}, #{password}, #{username}, #{avatar}, #{phone}, #{gender}, #{create_time}, #{update_time}, #{del_status})
+    </insert>
+
+    <update id="updateUserInfo" parameterType="com.wei.diploma_project.bean.UserBean">
+        UPDATE `user`
+        SET username = #{username}, phone = #{phone}, gender = #{gender}
+        WHERE loginname = #{loginname}
+    </update>
+
+    <update id="modifyPwd" parameterType="com.wei.diploma_project.bean.UserBean">
+        UPDATE `user`
+        SET password = #{password}
+        WHERE loginname = #{loginname}
+    </update>
+
+    <!-- 冻结 or 解冻 -->
+    <update id="updateUserStatus">
+        UPDATE `user`
+        SET del_status = #{status}
+        WHERE loginname = #{loginname}
+    </update>
+
+    <!-- 更新 头像 -->
+    <update id="updateUserAvatar">
+        UPDATE `user`
+        SET `avatar` = #{imgURL}
+        WHERE `uid` = #{uid}
+    </update>
+
+    <select id="findUserByLoginName" resultMap="UserResultMap">
+        SELECT <include refid="User_Column_List"/>
+        FROM user
+        WHERE loginname = #{logininame}
+    </select>
+
+    <select id="getAllUser" resultMap="UserResultMap">
+        SELECT <include refid="User_Column_List"/>
+        FROM user
+    </select>
+
+    <select id="getUserByNameLike" resultMap="UserResultMap">
+        SELECT <include refid="User_Column_List"/>
+        FROM `user`
+        WHERE loginname LIKE CONCAT('%',#{like},'%')
+           OR username LIKE CONCAT('%',#{like},'%')
+    </select>
+
+    <select id="getUserByUID" resultType="com.wei.diploma_project.bean.UserBean">
+        SELECT <include refid="User_Column_List"/>
+        FROM user
+        WHERE uid = #{uid}
+    </select>
+</mapper>

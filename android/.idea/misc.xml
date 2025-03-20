@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable-v24/corner_search.xml" value="0.1065" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable-v24/ic_home.xml" value="0.1165" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable-v24/ic_home_selected.xml" value="0.1165" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1165" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable-v24/search_corner.xml" value="0.1165" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable-v24/tab_menu_home.xml" value="0.1165" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable-v24/tab_menu_home_selected.xml" value="0.1165" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable-v24/tab_menu_text.xml" value="0.1165" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable/btn_corner.xml" value="0.1085" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable/cart_buttom_line.xml" value="0.1065" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable/cart_item_corner.xml" value="0.1085" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable/corner_btn.xml" value="0.1" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable/corner_cart_item.xml" value="0.1" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable/corner_tab.xml" value="0.1975" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable/good_buttom_line.xml" value="0.1" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable/ic___.xml" value="0.1165" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable/ic_back.xml" value="0.1065" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable/ic_cart_join.xml" value="0.1235" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable/ic_cart_join_white.xml" value="0.1235" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable/ic_launcher_background.xml" value="0.1165" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable/ic_tab_home.xml" value="0.1" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable/ic_tab_home_selected.xml" value="0.1" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable/ic_tab_mine.xml" value="0.1" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable/ic_tab_mine_selected.xml" value="0.1" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable/ic_tab_shopcart.xml" value="0.1" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable/ic_tab_shopcart_selected.xml" value="0.1" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable/left_menu_bg.xml" value="0.1085" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable/left_menu_line.xml" value="0.1" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable/left_menu_text.xml" value="0.1" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable/tab_corner.xml" value="0.1165" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable/tab_menu_mine.xml" value="0.1" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable/tab_menu_shopcart.xml" value="0.1" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/drawable/tab_menu_type.xml" value="0.1" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/app.xml" value="0.22146739130434784" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/cart_good_item.xml" value="0.24114583333333334" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/class_good_item.xml" value="0.2265625" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/class_good_view.xml" value="0.24114583333333334" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/class_left_item.xml" value="0.24114583333333334" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/class_menu_item.xml" value="0.10052083333333334" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/class_type_item.xml" value="0.24114583333333334" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/fg_cart.xml" value="0.22826086956521738" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/fg_class.xml" value="0.22826086956521738" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/fg_good_list.xml" value="0.2265625" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/fg_home.xml" value="0.176" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/fg_mine.xml" value="0.22826086956521738" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/good_comment.xml" value="0.24114583333333334" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/good_comment_item.xml" value="0.2375" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/good_list_show.xml" value="0.24114583333333334" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/good_list_show_item.xml" value="0.24114583333333334" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/good_rating.xml" value="0.1" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/good_rating_item.xml" value="0.24010416666666667" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/good_salebest_item.xml" value="0.16666666666666666" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/good_search.xml" value="0.16" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/good_single_show.xml" value="0.24114583333333334" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/home_good_item.xml" value="0.2" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/left_class.xml" value="0.24114583333333334" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/left_class_item.xml" value="0.11727456940222898" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/login.xml" value="0.24114583333333334" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/order_all.xml" value="0.24010416666666667" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/order_cart.xml" value="0.24114583333333334" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/order_detail.xml" value="0.24010416666666667" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/order_detail_item.xml" value="0.134375" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/user_address.xml" value="0.23645833333333333" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/user_address_edit.xml" value="0.24010416666666667" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/user_address_item.xml" value="0.24114583333333334" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/user_info.xml" value="0.11727456940222898" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/user_login.xml" value="0.24114583333333334" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/layout/user_register.xml" value="0.24010416666666667" />
+        <entry key="..\:/AndroidKit/workspace/Diploma_Project/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

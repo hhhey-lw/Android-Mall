@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?><!-- XML implementation of Card Layout -->
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="220dp"
+    android:layout_margin="10dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="0dp">
+
+    <LinearLayout
+        android:padding="6dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <ImageView
+            android:background="@color/orange"
+            android:scaleType="centerCrop"
+            android:id="@+id/idGoodImage"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:minHeight="150dp"
+            android:layout_weight="6"
+            android:layout_gravity="center"
+            android:src="@drawable/goodshow1" />
+
+        <LinearLayout
+            android:gravity="center_vertical"
+            android:padding="6dp"
+            android:layout_weight="3"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:orientation="vertical">
+            <TextView
+                android:lines="1"
+                android:ellipsize="end"
+                android:id="@+id/idGoodName"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="超级无敌热销"
+                android:textSize="16sp" />
+            <TextView
+                android:id="@+id/idGoodPrice"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="￥9.9"
+                android:textSize="18sp"
+                android:textColor="@color/orange"/>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

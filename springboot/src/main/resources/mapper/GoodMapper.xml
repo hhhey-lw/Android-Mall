@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wei.diploma_project.mapper.GoodMapper">
+    <!-- 数据库字段映射实体类属性 -->
+    <resultMap id="BaseResultMap" type="com.wei.diploma_project.bean.GoodBean">
+            <id property="gid" column="gid" jdbcType="INTEGER"/>
+            <result property="gname" column="gname" jdbcType="VARCHAR"/>
+            <result property="gimage" column="gimage" jdbcType="VARCHAR"/>
+            <result property="gdetail" column="gdetail" jdbcType="VARCHAR"/>
+            <result property="gprimalPrice" column="gprimal_price" jdbcType="DOUBLE"/>
+            <result property="gdiscountPrice" column="gdiscount_price" jdbcType="DOUBLE"/>
+            <result property="gsaleStatus" column="gsale_status" jdbcType="INTEGER"/>
+            <result property="gsaleNumber" column="gsale_number" jdbcType="INTEGER"/>
+            <result property="gnumber" column="gnumber" jdbcType="INTEGER"/>
+            <result property="gtypeId" column="gtype_id" jdbcType="INTEGER"/>
+            <result property="gstatus" column="gstatus" jdbcType="INTEGER"/>
+            <result property="gcreateTime" column="gcreate_time" jdbcType="TIMESTAMP"/>
+            <result property="gupdateTime" column="gupdate_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <!-- 复用 -->
+    <sql id="Base_Column_List">
+        gid,gname,gimage, gdetail,
+        gprimal_price,gdiscount_price,gsale_status,
+        gnumber,gtype_id,gstatus,gsale_number,
+        gcreate_time,gupdate_time
+    </sql>
+
+    <insert id="addGood" parameterType="GoodBean">
+        INSERT
+        INTO good ( gname, gimage, gdetail, gprimal_price, gdiscount_price, gsale_status, gsale_number, gnumber, gtype_id, gstatus, gcreate_time, gupdate_time )
+        VALUES
+        (#{gname},#{gimage},#{gdetail},#{gprimalPrice},#{gdiscountPrice},#{gsaleStatus},#{gsaleNumber},#{gnumber},#{gtypeId},#{gstatus},#{gcreateTime},#{gupdateTime})
+    </insert>
+
+    <update id="updateGood" parameterType="GoodBean">
+        UPDATE good
+        SET gname = #{gname}, gimage = #{gimage}, gdetail = #{gdetail}, gprimal_price = #{gprimalPrice}, gnumber = #{gnumber}, gtype_id = #{gtypeId}, gupdate_time = #{gupdateTime}
+        WHERE gid = #{gid}
+    </update>
+
+    <update id="updateGoodStatus" parameterType="GoodBean">
+        UPDATE good
+        SET gstatus = #{gstatus}
+        WHERE gid = #{gid}
+    </update>
+
+    <!-- 根据商品小类查对应多个商品 -->
+    <select id="findGoodByType" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List" />
+        FROM diploma_project.good
+        WHERE gtype_id = #{typeId}
+    </select>
+    <!-- 根据商品大类 查对应的多个小类 -->
+    <select id="findTypeByCategory" resultType="GoodTypeBean">
+        SELECT gtype_id, gtype_name
+        FROM goodtype
+        WHERE gcategory_id = #{categoryId} and `status` = 1
+    </select>
+    <!-- 查商品大类 -->
+    <select id="getGoodCategory" resultType="GoodCategoryBean">
+        SELECT gcategory_id, gcategory_name
+        FROM `goodcategory`
+        WHERE `status` = 1
+    </select>
+
+    <select id="getGoodById" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"></include>
+        FROM good
+        WHERE gid = #{goodId}
+    </select>
+    <!-- 拿整个大类的商品 -->
+    <select id="getGoodByCategory" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"></include>
+        FROM good
+        WHERE gtype_id in (
+            SELECT gtype_id
+            FROM goodtype
+            WHERE gcategory_id = #{gid}
+        )
+    </select>
+
+    <select id="getGoodByNameLike" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"></include>
+        FROM good
+        WHERE gname LIKE CONCAT('%',#{nameLike},'%')
+    </select>
+
+
+    <select id="getAllGoodID" resultType="java.lang.Integer">
+        SELECT gid
+        FROM good
+    </select>
+
+    <select id="getSaleBestList" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM good
+        ORDER BY gsale_number DESC
+        LIMIT #{num}
+    </select>
+
+
+</mapper>

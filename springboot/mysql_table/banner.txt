@@ -1,0 +1,5 @@
+"bid"	"b_imageurl"	"b_status"
+"1"	"/image/banner1.jpg"	"1"
+"2"	"/image/banner2.jpg"	"1"
+"3"	"/image/banner3.jpg"	"1"
+"4"	"/image/img0d55e71c096d4d12a25c92e01b84ee42.jpeg"	"0"

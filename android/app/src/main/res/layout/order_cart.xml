@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:background="@color/white"
+    app:cardCornerRadius="6dp"
+    app:cardElevation="0dp">
+    <LinearLayout
+        android:padding="8dp"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <!-- 订单状态 -->
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="6dp"
+            android:gravity="center_vertical">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="订单号："/>
+            <TextView
+                android:id="@+id/idOrderIndex"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="20233221559xxxx"/>
+            <View
+                android:layout_weight="1"
+                android:layout_width="0dp"
+                android:layout_height="0dp"/>
+            <TextView
+                android:textStyle="bold"
+                android:id="@+id/idOrderStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="已完成"/>
+        </LinearLayout>
+        <!-- 商品 -->
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <!-- 待优化为适配器填充！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！ -->
+            <!-- 待优化为适配器填充！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！！ -->
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/idOrderDetailItemView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
+        </LinearLayout>
+        <!-- 合计 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="right">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="合计："/>
+            <TextView
+                android:id="@+id/idOrderTotal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="￥99.9"/>
+        </LinearLayout>
+    </LinearLayout>
+</androidx.cardview.widget.CardView>

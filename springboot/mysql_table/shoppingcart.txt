@@ -1,0 +1,3 @@
+"cid"	"uid"	"gid"	"gpurchase_number"	"gstatus"
+"84"	"1"	"7"	"1"	"1"
+"85"	"1"	"5"	"1"	"1"

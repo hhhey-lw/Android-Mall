@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_margin="10dp"
+    android:padding="10dp"
+    android:orientation="vertical"
+    android:background="@drawable/corner_cart_item"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:gravity="center"
+            android:id="@+id/idGoodImage"
+            android:layout_width="50dp"
+            android:layout_height="50dp"/>
+        <TextView
+            android:layout_marginLeft="8dp"
+            android:textSize="16sp"
+            android:text="商品名称"
+            android:id="@+id/idGoodName"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"/>
+    </LinearLayout>
+
+    <TextView
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="6dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/orange"
+        android:textSize="22sp"
+        android:text="你的评价会让我们做得更好"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:layout_marginBottom="8dp"
+        android:textSize="12sp"
+        android:gravity="center"
+        android:text="你的反馈有利于提高用户的使用体验"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+    <RatingBar
+        android:id="@+id/idRatingBtn"
+        style="@style/Widget.AppCompat.RatingBar.Indicator"
+        android:isIndicator="false"
+        android:stepSize="1"
+        android:rating="1"
+        android:numStars="5"
+        android:progressTint="@color/star"
+        android:layout_gravity="center"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/idCommentText"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:scrollbars="vertical"
+        android:padding="6dp"
+        android:gravity="start"
+        android:background="@color/super_light_gray"
+        android:ellipsize="end"
+        android:lines="5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:id="@+id/idSubmitBtn"
+        android:layout_marginBottom="10dp"
+        android:textColor="@color/white"
+        android:background="@drawable/corner_btn"
+        android:text="提交评论"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+</LinearLayout>

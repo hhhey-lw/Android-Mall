@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <!-- 返回&标题 -->
+    <LinearLayout
+        android:padding="8dp"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageButton
+            android:background="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="商品评论"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            />
+    </LinearLayout>
+
+    <!-- 功能条 -->
+    <LinearLayout
+        android:gravity="center"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:id="@+id/idTextBtn1"
+            android:gravity="center"
+            android:layout_margin="6dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@drawable/tab_menu_text"
+            android:textSize="16sp"
+            android:text="全部"
+            />
+        <TextView
+            android:id="@+id/idTextBtn2"
+            android:gravity="center"
+            android:layout_margin="6dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@drawable/tab_menu_text"
+            android:textSize="16sp"
+            android:text="好评"
+            />
+        <TextView
+            android:id="@+id/idTextBtn3"
+            android:gravity="center"
+            android:layout_margin="6dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@drawable/tab_menu_text"
+            android:textSize="16sp"
+            android:text="中评"
+            />
+        <TextView
+            android:id="@+id/idTextBtn4"
+            android:gravity="center"
+            android:layout_margin="6dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@drawable/tab_menu_text"
+            android:textSize="16sp"
+            android:text="差评"
+            />
+    </LinearLayout>
+
+    <!-- 评论视图 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_marginTop="6dp"
+        android:background="@color/light_gray"
+        android:id="@+id/idShowCommentList"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+</LinearLayout>

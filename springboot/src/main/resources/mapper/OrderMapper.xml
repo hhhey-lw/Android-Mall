@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wei.diploma_project.mapper.OrderMapper">
+    <!-- Order 映射 -->
+    <resultMap id="BaseResultMap" type="com.wei.diploma_project.bean.OrderBean">
+            <id property="oid" column="oid" jdbcType="INTEGER"/>
+            <result property="uid" column="uid" jdbcType="INTEGER"/>
+            <result property="addrId" column="addr_id" jdbcType="INTEGER"/>
+            <result property="orderIndex" column="order_index" jdbcType="VARCHAR"/>
+            <result property="freightIndex" column="freight_index" jdbcType="VARCHAR"/>
+            <result property="ostatus" column="ostatus" jdbcType="INTEGER"/>
+            <result property="createTime" column="create_time" jdbcType="TIMESTAMP"/>
+            <result property="finisheTime" column="finishe_time" jdbcType="TIMESTAMP"/>
+            <result property="paymentTime" column="payment_time" jdbcType="TIMESTAMP"/>
+            <result property="deliveryTime" column="delivery_time" jdbcType="TIMESTAMP"/>
+            <result property="priceTotal" column="price_total" jdbcType="DOUBLE"/>
+            <result property="freightExpense" column="freight_expense" jdbcType="DOUBLE"/>
+            <result property="paymentMode" column="payment_mode" jdbcType="INTEGER"/>
+    </resultMap>
+    <!-- Item 映射 -->
+    <resultMap id="itemResultMap" type="com.wei.diploma_project.bean.OrderItem">
+        <id property="oitemId" column="oitem_id" jdbcType="INTEGER"/>
+        <result property="oid" column="oid" jdbcType="INTEGER"/>
+        <result property="gid" column="gid" jdbcType="INTEGER"/>
+        <result property="gpurchaseNumber" column="gpurchase_number" jdbcType="INTEGER"/>
+        <result property="gpurchasePrice" column="gpurchase_price" jdbcType="DOUBLE"/>
+        <result property="oratingStatus" column="orating_status" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        oid,uid,addr_id,
+        order_index,freight_index,ostatus,
+        create_time,finishe_time,payment_time,
+        delivery_time,price_total,freight_expense,
+        payment_mode
+    </sql>
+    <sql id="item_Column_List">
+        oitem_id ,oid, gid, gpurchase_price, gpurchase_number, orating_status
+    </sql>
+
+    <!-- 添加订单 -->
+    <insert id="addOrder" parameterType="orderBean">
+        INSERT INTO `order` (uid, addr_id, order_index, freight_index,ostatus, create_time,price_total,freight_expense,payment_mode)
+        VALUES (#{uid},#{addrId},#{orderIndex},#{freightIndex},#{ostatus}, #{createTime}, #{priceTotal},#{freightExpense},#{paymentMode});
+    </insert>
+    <!-- 添加子项 -->
+    <insert id="addOrderItem">
+        INSERT INTO `order_item`(oid, gid, gpurchase_price, gpurchase_number)
+        VALUES (#{oid}, #{gid}, #{gpurchasePrice}, #{gpurchaseNumber})
+    </insert>
+
+    <!-- 修改订单状态 -->
+    <update id="updateOrderStatus">
+        UPDATE `order`
+        SET ostatus = #{ostatus}
+        WHERE order_index = #{orderIndex}
+    </update>
+
+    <update id="updateOrderStatusByOid">
+        UPDATE `order`
+        SET ostatus = #{ostatus}
+        WHERE oid = #{oid}
+    </update>
+
+    <update id="updateOrderItemStatus">
+        UPDATE `order_item`
+        SET orating_status = #{oi_status}
+        WHERE oitem_id = #{oitem_id}
+    </update>
+
+    <update id="updateOrderAddress">
+        UPDATE `order`
+        SET addr_id = #{addr_id}
+        WHERE oid = #{oid}
+    </update>
+
+    <update id="finishedSendGood">
+        UPDATE `order`
+        SET freight_index = #{freightIndex}, freight_expense = #{freightExpense}, ostatus = 3
+        WHERE oid = #{oid}
+    </update>
+
+    <!-- 付款时间 -->
+    <update id="updateOrderPayTime">
+        UPDATE `order`
+        SET payment_time = #{date}
+        WHERE order_index = #{out_trade_no}
+    </update>
+    <!-- 发货时间 -->
+    <update id="updateOrderSendTime">
+        UPDATE `order`
+        SET delivery_time = #{date}
+        WHERE oid = #{oid}
+    </update>
+
+    <!-- 拿用户最新的订单号 -->
+    <select id="getNewestOidByUid" resultType="java.lang.Integer">
+        SELECT oid
+        FROM `order`
+        WHERE uid = #{uid}
+        ORDER BY oid DESC
+        LIMIT 1
+    </select>
+
+    <!-- 拿取订单 -->
+    <select id="getOrderByOid" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM `order`
+        WHERE oid = #{oid}
+    </select>
+
+    <!-- 拿取订单子项 -->
+    <select id="getOrderItem" resultMap="itemResultMap">
+        SELECT <include refid="item_Column_List"/>
+        FROM `order_item`
+        WHERE oid = #{oid}
+    </select>
+
+
+    <select id="getAllOidByUid" resultType="int">
+        SELECT oid
+        FROM `order`
+        WHERE uid = #{uid}
+        ORDER BY `order`.create_time DESC
+    </select>
+
+    <select id="getWaitSendOrderList" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM `order`
+        where ostatus = 2
+    </select>
+
+    <select id="getAllOrder" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM `order`
+    </select>
+    <select id="getItemUserIDListByGID" resultType="java.lang.Integer">
+        SELECT order.uid
+        FROM `order_item`
+                 LEFT JOIN `order`
+                           ON order_item.oid = `order`.oid
+        WHERE order_item.gid = #{gid} and order_item.orating_status = 0
+    </select>
+    <!-- 一周的收益 -->
+    <select id="calPriceWithWeek" resultMap="BaseResultMap">
+        SELECT SUM(price_total) as price_total, date_format(payment_time, '%m-%d') as order_index
+        FROM `order`
+        WHERE payment_time is not null
+        GROUP BY date_format(payment_time, '%Y-%m-%d'), payment_time
+        ORDER BY date_format(payment_time, '%Y-%m-%d') DESC
+        LIMIT 7
+    </select>
+
+</mapper>

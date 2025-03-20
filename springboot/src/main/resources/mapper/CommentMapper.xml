@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wei.diploma_project.mapper.CommentMapper">
+
+    <resultMap id="BaseResultMap" type="com.wei.diploma_project.bean.CommentBean">
+            <id property="cid" column="cid" jdbcType="INTEGER"/>
+            <result property="gid" column="gid" jdbcType="INTEGER"/>
+            <result property="uid" column="uid" jdbcType="INTEGER"/>
+            <result property="cContent" column="c_content" jdbcType="VARCHAR"/>
+            <result property="username" column="username" jdbcType="VARCHAR"/>
+            <result property="avatar" column="avatar" jdbcType="VARCHAR"/>
+            <result property="cCreateTime" column="c_create_time" jdbcType="TIMESTAMP"/>
+            <result property="cDegree" column="c_degree" jdbcType="INTEGER"/>
+            <result property="cLike" column="c_like" jdbcType="INTEGER"/>
+            <result property="cStatus" column="c_status" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        cid,gid,uid,
+        c_content,c_create_time,c_degree,
+        c_like, c_status
+    </sql>
+
+    <insert id="addComment" parameterType="com.wei.diploma_project.bean.CommentBean">
+        INSERT
+        INTO comment (gid,uid,c_content,c_create_time,c_degree,c_like)
+        VALUES (#{gid}, #{uid}, #{cContent}, #{cCreateTime}, #{cDegree}, #{cLike})
+    </insert>
+
+    <select id="getAllCommentByGid" resultMap="BaseResultMap">
+        SELECT c.cid,c.gid,c.uid,
+               c.c_content,c.c_create_time,c.c_degree,
+               c.c_like, u.avatar, u.username
+        FROM `comment` c
+                 LEFT JOIN `user` u
+                           ON c.uid = u.uid
+        WHERE gid = #{gid} and c_status = 1
+    </select>
+
+    <select id="getAllCommentWaitCheck" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM `comment`
+        WHERE c_status = 0
+    </select>
+
+    <select id="getStatusByCid" resultType="java.lang.Integer">
+        SELECT c_status
+        FROM `comment`
+        WHERE cid = #{cid}
+    </select>
+
+    <select id="getAllComment" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM `comment`
+    </select>
+
+    <update id="changeCommentStatus">
+        UPDATE `comment`
+        SET c_status = #{status}
+        WHERE cid = #{cid}
+    </update>
+</mapper>

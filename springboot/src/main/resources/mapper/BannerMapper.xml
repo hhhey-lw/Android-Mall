@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wei.diploma_project.mapper.BannerMapper">
+
+    <resultMap id="BaseResultMap" type="com.wei.diploma_project.bean.BannerBean">
+            <id property="bid" column="bid" jdbcType="INTEGER"/>
+            <result property="bImageurl" column="b_imageurl" jdbcType="VARCHAR"/>
+            <result property="bStatus" column="b_status" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        bid,b_imageurl,b_status
+    </sql>
+
+    <insert id="addBanner" parameterType="BannerBean">
+        INSERT INTO
+            `banner` (`b_imageurl`, `b_status`)
+            VALUES (#{bImageurl}, #{bStatus})
+    </insert>
+
+    <update id="changeStatus">
+        UPDATE `banner`
+        SET b_status = #{status}
+        WHERE bid = #{id}
+    </update>
+
+    <select id="getBannerRes" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM banner
+        WHERE b_status = 1
+    </select>
+
+    <select id="getBannerAll" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM banner
+    </select>
+
+    <select id="getStatusById" resultType="java.lang.Integer">
+        SELECT b_status
+        FROM `banner`
+        WHERE bid = #{id}
+    </select>
+</mapper>

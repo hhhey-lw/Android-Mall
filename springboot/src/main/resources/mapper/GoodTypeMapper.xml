@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wei.diploma_project.mapper.GoodTypeMapper">
+
+    <resultMap id="baseResultMap" type="com.wei.diploma_project.bean.GoodTypeBeanWithStatus">
+        <id property="gtype_id" column="gtype_id" jdbcType="INTEGER"/>
+        <result property="gtype_name" column="gtype_name" jdbcType="VARCHAR"/>
+        <result property="gcategory_id" column="gcategory_id" jdbcType="INTEGER"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <insert id="addType">
+        INSERT
+        INTO goodtype ( gcategory_id, gtype_name, `status` )
+        VALUES (#{gcategory_id}, #{gtype_name}, 1)
+    </insert>
+
+    <update id="updateTypeByID">
+        UPDATE goodtype
+        SET `gcategory_id` = #{gcategory_id}, `gtype_name` = #{newName}
+        WHERE `gtype_id` = #{gtype_id}
+    </update>
+
+    <update id="changeTypeStatusByID">
+        UPDATE goodtype
+        SET `status` = #{status}
+        WHERE `gtype_id` = #{gtype_id}
+    </update>
+
+    <select id="getAllTypeByCategory" resultMap="baseResultMap">
+        SELECT gcategory_id, gtype_id, gtype_name, `status`
+        FROM goodtype
+        WHERE gcategory_id = #{gcategory_id}
+    </select>
+
+    <select id="getStatusByID" resultType="int" parameterType="int">
+        SELECT `status`
+        FROM goodtype
+        WHERE gtype_id = #{gtype_id}
+    </select>
+
+
+</mapper>

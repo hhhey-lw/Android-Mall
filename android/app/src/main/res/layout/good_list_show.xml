@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/white">
+
+    <!-- 状态栏 占位 -->
+    <LinearLayout
+        android:id="@+id/space"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:visibility="invisible">
+    </LinearLayout>
+
+    <!-- 返回&标题 -->
+    <LinearLayout
+        android:padding="8dp"
+        android:gravity="center_vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageButton
+            android:background="@color/white"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_back"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="你好世界"
+            android:textStyle="bold"
+            android:textSize="18sp"
+            />
+    </LinearLayout>
+
+    <!-- 功能条 -->
+    <LinearLayout
+        android:gravity="center"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:id="@+id/idTextBtn1"
+            android:gravity="center"
+            android:layout_margin="6dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@drawable/tab_menu_text"
+            android:textSize="16sp"
+            android:text="综合"
+            />
+        <TextView
+            android:id="@+id/idTextBtn2"
+            android:gravity="center"
+            android:layout_margin="6dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@drawable/tab_menu_text"
+            android:textSize="16sp"
+            android:text="销量"
+            />
+        <TextView
+            android:id="@+id/idTextBtn3"
+            android:gravity="center"
+            android:layout_margin="6dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@drawable/tab_menu_text"
+            android:textSize="16sp"
+            android:text="价格"
+            />
+        <TextView
+            android:id="@+id/idTextBtn4"
+            android:gravity="center"
+            android:layout_margin="6dp"
+            android:paddingTop="4dp"
+            android:paddingBottom="4dp"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:textColor="@drawable/tab_menu_text"
+            android:textSize="16sp"
+            android:text="上新"
+            />
+    </LinearLayout>
+
+    <!-- 商品视图 -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:background="@color/light_gray"
+        android:id="@+id/idShowGoodList"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>

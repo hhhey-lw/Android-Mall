@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.wei.diploma_project.mapper.GoodCategoryMapper">
+
+    <resultMap id="baseResultMap" type="com.wei.diploma_project.bean.GoodCategoryWithStatusBean">
+        <id property="gcategory_id" column="gcategory_id" jdbcType="INTEGER"/>
+        <result property="gcategory_name" column="gcategory_name" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <insert id="addCategory" parameterType="goodCategoryWithStatusBean">
+        INSERT
+        INTO goodcategory ( gcategory_name, `status` )
+        VALUES (#{categoryName}, 1)
+    </insert>
+
+    <update id="updateCategoryByID">
+        UPDATE goodcategory
+        SET `gcategory_name` = #{newName}
+        WHERE gcategory_id = #{id}
+    </update>
+
+    <update id="changeCategoryStatusByID">
+        UPDATE goodcategory
+        SET `status` = #{status}
+        WHERE gcategory_id = #{id}
+    </update>
+
+    <select id="getAllCategory" resultMap="baseResultMap">
+        SELECT gcategory_id, gcategory_name, `status`
+        FROM goodcategory
+    </select>
+
+    <select id="getStatusByID" resultType="java.lang.Integer">
+        SELECT `status`
+        FROM goodcategory
+        WHERE gcategory_id = #{id}
+    </select>
+
+</mapper>

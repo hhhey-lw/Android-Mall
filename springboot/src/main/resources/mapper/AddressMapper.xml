@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.wei.diploma_project.mapper.AddressMapper">
+
+    <resultMap id="BaseResultMap" type="com.wei.diploma_project.bean.AddressBean">
+            <id property="addrId" column="addr_id" jdbcType="INTEGER"/>
+            <result property="uid" column="uid" jdbcType="INTEGER"/>
+            <result property="username" column="username" jdbcType="VARCHAR"/>
+            <result property="phone" column="phone" jdbcType="VARCHAR"/>
+            <result property="addrProvince" column="addr_province" jdbcType="VARCHAR"/>
+            <result property="addrCity" column="addr_city" jdbcType="VARCHAR"/>
+            <result property="addrDistrict" column="addr_district" jdbcType="VARCHAR"/>
+            <result property="addrDetail" column="addr_detail" jdbcType="VARCHAR"/>
+            <result property="addrDefualt" column="addr_defualt" jdbcType="INTEGER"/>
+            <result property="delStatus" column="del_status" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        addr_id,uid,username,
+        phone,addr_province,addr_city,
+        addr_district,addr_detail,addr_defualt,del_status
+    </sql>
+
+    <insert id="addAddress" parameterType="com.wei.diploma_project.bean.AddressBean">
+        INSERT
+        INTO address(uid,username,phone,
+                     addr_province,addr_city,
+                     addr_district,addr_detail,addr_defualt,del_status)
+        VALUES (#{uid}, #{username}, #{phone},
+                #{addrProvince}, #{addrCity}, #{addrDistrict}, #{addrDetail}, 0, 0)
+    </insert>
+
+    <update id="updateAddr" parameterType="com.wei.diploma_project.bean.AddressBean">
+        UPDATE address
+        SET username = #{username},
+            phone = #{phone},
+            addr_province = #{addrProvince},
+            addr_city = #{addrCity},
+            addr_district = #{addrDistrict},
+            addr_detail = #{addrDetail}
+        WHERE addr_id = #{addrId}
+    </update>
+
+    <update id="updateAddrDefaultStatus">
+        UPDATE address
+        SET addr_defualt = #{addr_default_status}
+        WHERE addr_id = #{addr_id}
+    </update>
+
+    <!-- 假删除 -->
+    <update id="deleteAddress">
+        UPDATE address
+        SET del_status = 1
+        WHERE addr_id = #{addr_id}
+    </update>
+
+    <!-- 拿所有地址 -->
+    <select id="getAddress" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM `address`
+        WHERE uid = #{uid} and del_status = 0
+    </select>
+
+    <select id="findAddrByAddrId" resultMap="BaseResultMap">
+        SELECT  <include refid="Base_Column_List"/>
+        FROM `address`
+        WHERE addr_id = #{addr_id}
+    </select>
+
+    <select id="getDefaultAddr" resultMap="BaseResultMap">
+        SELECT <include refid="Base_Column_List"/>
+        FROM `address`
+        WHERE uid = #{uid} and addr_defualt = 1
+    </select>
+
+
+</mapper>
