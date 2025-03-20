@@ -1,9 +1,8 @@
-<<<<<<< HEAD
 Toy Application
 
 - **Android**
 
-<img src="image/image-20250320171600152.png" alt="image-20250320171600152" style="zoom:25%;" /><img src="image/image-20250320172033714.png" alt="image-20250320172033714" style="zoom:25%;" /><img src="image/image-20250320171628779.png" alt="image-20250320171628779" style="zoom:25%;" /><img src="image/image-20250320171754658.png" alt="image-20250320171754658" style="zoom:25%;" /><img src="image/image-20250320171814989.png" alt="image-20250320171814989" style="zoom:25%;" />
+<img src="image/image-20250320171600152.png" alt="image-20250320171600152"  width="200"  /><img src="image/image-20250320172033714.png" alt="image-20250320172033714"  width="200"  /><img src="image/image-20250320171628779.png" alt="image-20250320171628779"  width="200"  /><img src="image/image-20250320171754658.png" alt="image-20250320171754658"  width="200"  /><img src="image/image-20250320171814989.png" alt="image-20250320171814989"  width="200"  />
 
 - **Vue**
 
@@ -11,4 +10,5 @@ Toy Application
 =======
 # Android-Mall
 基于Android、SpringBoot、Vue商城练习项目
->>>>>>> e9a0788101ea59378d31dee36caa1eb04840c8ec
+
+- 实现支付宝沙箱模拟支付业务
