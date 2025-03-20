@@ -2,7 +2,7 @@ Toy Application
 
 - **Android**
 
-<img src="image/image-20250320171600152.png" alt="image-20250320171600152"  width="200"  /><img src="image/image-20250320172033714.png" alt="image-20250320172033714"  width="200"  /><img src="image/image-20250320171628779.png" alt="image-20250320171628779"  width="200"  /><img src="image/image-20250320171754658.png" alt="image-20250320171754658"  width="200"  /><img src="image/image-20250320171814989.png" alt="image-20250320171814989"  width="200"  />
+<img src="image/image-20250320171600152.png" alt="image-20250320171600152"  width="150"  /><img src="image/image-20250320172033714.png" alt="image-20250320172033714"  width="150"  /><img src="image/image-20250320171628779.png" alt="image-20250320171628779"  width="150"  /><img src="image/image-20250320171754658.png" alt="image-20250320171754658"  width="150"  /><img src="image/image-20250320171814989.png" alt="image-20250320171814989"  width="150"  />
 
 - **Vue**
 
