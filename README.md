@@ -1,4 +1,3 @@
-Toy Application
 
 - **Android**
 
