@@ -9,6 +9,6 @@ Toy Application
 <img src="image/image-20250320152521915.png" alt="image-20250320152521915"  width="800"  />
 =======
 # Android-Mall
-基于Android、SpringBoot、Vue商城练习项目
+基于Android、SpringBoot、Vue商城项目
 
 - 实现支付宝沙箱模拟支付业务
